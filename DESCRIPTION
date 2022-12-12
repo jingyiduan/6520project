@@ -1,0 +1,10 @@
+Package: fdr
+Type: Package
+Title: Two-stage Testing Method for Variable Interactions with FDR Control
+Version: 0.1.0
+Author: Jingyi Duan
+Maintainer: The package maintainer <jd2222@cornell.edu>
+Description: Provide functions to calculte FDR and power using the proposed two-stage method 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
