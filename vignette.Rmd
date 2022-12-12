@@ -1,0 +1,42 @@
+---
+title: "vignette"
+author: "Jingyi Duan"
+date: "2022-12-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+Two functions are provided in this package: *searcht* and *testatlist*. 
+
+
+## Additional Packages Needed
+
+```{r packages, eval=TRUE}
+library(MASS)
+install.packages("sandwich")
+library(sandwich)
+```
+
+## Example
+
+```{r}
+library(fdr)
+n=50; p=100; eta=0.1; maxbeta=2; alpha=0.5
+statss <- teststatlist(n, p, eta, maxbeta, alpha)
+t_hat <- searcht(statss[[1]],eta, p)
+```
+
+Power is given by
+```{r}
+twostagepr <- sum(statss[[3]] >= t_hat)/statss[[4]]
+twostagepr
+```
+FDR
+```{r}
+sum(statss[[2]] >= t_hat)/max(sum(statss[[1]] >= t_hat),1)
+```
+
